@@ -19,8 +19,8 @@ import time
 import urllib
 import urllib.parse
 
-from src.push_admin import _http
-from src.push_admin import _message_serializer
+from push_admin import _http
+from push_admin import _message_serializer
 
 
 class App(object):
@@ -34,7 +34,7 @@ class App(object):
             msg_body = json.dumps(body)
             response = _http.post(url, msg_body, headers, verify_peer)
 
-            if response.status_code is not 200:
+            if response.status_code != 200:
                 raise ApiCallError('http status code is {0} in send.'.format(response.status_code))
 
             # json text to dict
@@ -81,7 +81,7 @@ class App(object):
         try:
             response = _http.post(self.token_server, msg_body, headers, verify_peer=verify_peer)
 
-            if response.status_code is not 200:
+            if response.status_code != 200:
                 return False, 'http status code is {0} in get access token'.format(response.status_code)
 
             """ json string to directory """

@@ -287,7 +287,8 @@ class AndroidConfig(object):
     Android-specific options that can be included in a message.
     """
     def __init__(self, collapse_key=None, urgency='NORMAL', ttl=None, bi_tag=None
-                 , fast_app_target=None, notification=None, data=None, category=None):
+                 , fast_app_target=None, notification=None, data=None, category=None
+                 , target_user_type=0):
         MessageValidator.check_android_config(collapse_key, urgency, ttl, bi_tag, fast_app_target
                                               , notification, data)
         self.collapse_key = collapse_key
@@ -298,6 +299,7 @@ class AndroidConfig(object):
         self.notification = notification
         self.data = data
         self.category = category
+        self.target_user_type = target_user_type
 
 
 class AndroidNotification(object):

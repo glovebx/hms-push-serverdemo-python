@@ -8,3 +8,4 @@ log/
 .idea
 *.iml
 .project
+.DS_Store
